@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="checkout-container">
+        <h1>Checkout</h1>
+        
+        <form id="checkoutForm">
+            <!-- Personal Information -->
+            <div class="form-group">
+                <label for="fullName">Full Name *</label>
+                <input 
+                    type="text" 
+                    id="fullName" 
+                    name="fullName" 
+                    required 
+                    pattern="^[A-Za-z ]+$"
+                    placeholder="Enter your full name">
+                <div class="error-message" id="fullNameError">
+                    Full name is required and must contain only letters
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required
+                    placeholder="email@example.com">
+                <div class="error-message" id="emailError">
+                    Please enter a valid email address
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    required
+                    pattern="[0-9]{10,15}"
+                    placeholder="Phone number (digits only)">
+                <div class="error-message" id="phoneError">
+                    Please enter a valid phone number (10-15 digits)
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="address">Shipping Address *</label>
+                <input 
+                    type="text" 
+                    id="address" 
+                    name="address" 
+                    required
+                    placeholder="Enter your full address">
+                <div class="error-message" id="addressError">
+                    Please enter your shipping address
+                </div>
+            </div>
+            
+            <!-- Payment Information -->
+            <h2>Payment Details</h2>
+            
+            <div class="card-icons">
+                <div class="card-icon">VISA</div>
+                <div class="card-icon">MC</div>
+                <div class="card-icon">AMEX</div>
+                <div class="card-icon">DISC</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="cardNumber">Credit Card Number *</label>
+                <input 
+                    type="text" 
+                    id="cardNumber" 
+                    name="cardNumber" 
+                    required
+                    pattern="[0-9]{16}" 
+                    maxlength="16"
+                    placeholder="16-digit card number">
+                <div class="error-message" id="cardNumberError">
+                    Please enter a valid 16-digit card number
+                </div>
+            </div>
+            
+            <div class="payment-row">
+                <div class="form-group">
+                    <label for="expiryDate">Expiry Date *</label>
+                    <input 
+                        type="month" 
+                        id="expiryDate" 
+                        name="expiryDate" 
+                        required>
+                    <div class="error-message" id="expiryDateError">
+                        Please enter a valid future expiry date
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="cvv">CVV *</label>
+                    <input 
+                        type="text" 
+                        id="cvv" 
+                        name="cvv" 
+                        required
+                        pattern="[0-9]{3}" 
+                        maxlength="3"
+                        placeholder="3-digit CVV">
+                    <div class="error-message" id="cvvError">
+                        Please enter a valid 3-digit CVV
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" id="submitBtn">Complete Purchase</button>
+        </form>
+        
+        <div class="success-message" id="successMessage">
+            Thank you! Your order has been processed successfully.
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
