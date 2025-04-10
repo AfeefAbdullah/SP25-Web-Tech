@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment & Lab Task Loader</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Assignment & Lab Task Loader</h1>
+    
+    <div class="instructions">
+        <p>Click on the "View" button next to any assignment or lab task to load its content in the iframe below.</p>
+    </div>
+
+    <div class="container">
+        <div class="task-list">
+            <div class="task-item">
+                <span class="task-title">Assignment 1: CV using HTML & CSS</span>
+                <button class="view-btn" data-path="../../Assignments/Assignment_1/index.html">View</button>
+            </div>
+            <div class="task-item">
+                <span class="task-title">Assignment 2: E-Commerce Landing Page</span>
+                <button class="view-btn" data-path="../../Assignments/Assignment_2/index.html">View</button>
+            </div>
+            <div class="task-item">
+                <span class="task-title">Lab Task 1: Landing Page using Bootstrap</span>
+                <button class="view-btn" data-path="../../Lab_Tasks/Lab_Task_1/index.html">View</button>
+            </div>
+            <div class="task-item">
+                <span class="task-title">Lab Task 2: Checkout Page with Validation</span>
+                <button class="view-btn" data-path="../../Lab_Tasks/Lab_Task_2/index.html">View</button>
+            </div>
+        </div>
+        
+        <div class="content-viewer">
+            <iframe id="content-frame" src="about:blank" title="Content Viewer"></iframe>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
