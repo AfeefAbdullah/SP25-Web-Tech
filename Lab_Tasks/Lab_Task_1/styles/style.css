@@ -1,0 +1,350 @@
+/* Custom CSS */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header & Navigation */
+.top-banner {
+    background-color: #f8f8f8;
+    padding: 10px 0;
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+}
+
+.close-banner {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.navbar {
+    padding: 0 !important;  /* Override Bootstrap's default padding */
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-right: 20px;  /* Reduced margin */
+    padding: 15px 0;     /* Add vertical padding to logo */
+}
+
+.nav-link {
+    color: #000 !important;
+    font-size: 15px;
+    padding: 15px 10px !important;  /* Adjusted padding */
+    white-space: nowrap;  /* Prevent menu items from wrapping */
+}
+
+.navbar-nav {
+    gap: 0;  /* Remove gap between items */
+}
+
+.nav-icons {
+    padding: 15px 0;  /* Add vertical padding to icons */
+}
+
+.nav-icons a {
+    color: #000;
+    margin-left: 15px;  /* Slightly reduced margin */
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    color: #fff;
+}
+
+.hero-title {
+    font-size: 42px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.btn-discover {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 8px 30px;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+
+.btn-discover:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Categories Section */
+.categories {
+    padding: 60px 0;
+}
+
+.category-title {
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.category-card {
+    position: relative;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.category-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+    backface-visibility: hidden;
+}
+
+.category-card:hover img {
+    transform: scale(1.03);
+}
+
+.category-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+}
+
+.category-info h3 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.btn-shop {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 5px 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-shop:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Featured Products */
+.featured-products {
+    padding: 50px 0;
+    background-color: #f8f8f8;
+}
+
+.product-card {
+    margin-bottom: 30px;
+}
+
+.product-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 15px 0;
+    text-align: center;
+}
+
+.product-name {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.product-price {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Summer Collection */
+.summer-collection {
+    padding: 70px 0;
+    text-align: center;
+    background-color: #fff;
+}
+
+.collection-title {
+    font-size: 32px;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.collection-subtitle {
+    font-size: 16px;
+    font-weight: 300;
+    color: #666;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.collection-buttons {
+    margin-top: 30px;
+}
+
+.btn-collection {
+    background-color: transparent;
+    border: 1px solid #000;
+    color: #000;
+    padding: 8px 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    margin: 0 10px;
+}
+
+.btn-collection:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Footer */
+footer {
+    padding: 50px 0 20px;
+    background-color: #111;
+    color: #fff;
+}
+
+.footer-title {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 18px;
+    margin-right: 15px;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 50px;
+}
+
+/* Custom Carousel Controls */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .nav-link {
+        padding: 10px 15px !important;
+    }
+    
+    .hero-content {
+        text-align: center;
+        left: 0;
+        right: 0;
+    }
+    
+    .hero-title {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 60vh;
+    }
+    
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .category-card img {
+        height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero {
+        height: 50vh;
+    }
+    
+    .hero-title {
+        font-size: 28px;
+    }
+    
+    .btn-discover, .btn-collection {
+        padding: 6px 20px;
+        font-size: 12px;
+    }
+    
+    .category-card img {
+        height: 250px;
+    }
+    
+    .collection-title {
+        font-size: 28px;
+    }
+}

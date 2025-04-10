@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burberry</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        Stay updated on our new collections, campaigns and stories <a href="#" class="text-dark fw-bold text-decoration-underline">Sign Up</a>
+        <span class="close-banner">&times;</span>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+        <div class="container">
+            <a class="navbar-brand" href="#">BURBERRY</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Women</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Men</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Children</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gifts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Trench</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Scarves</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Beauty</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Stories</a>
+                    </li>
+                </ul>
+                <div class="nav-icons ms-auto">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                    <a href="#"><i class="fas fa-user"></i></a>
+                    <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/Car1.jpg" alt="Burberry Hero Image" class="d-block w-100">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Burberry</h1>
+                        <h2 class="h4 mb-4 fw-light">High Summer 2025</h2>
+                        <button class="btn btn-discover">Discover</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/Car2.jpg" alt="Burberry Collection" class="d-block w-100">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Summer Collection</h1>
+                        <h2 class="h4 mb-4 fw-light">New Arrivals</h2>
+                        <button class="btn btn-discover">Shop Now</button>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+    
+    <!-- Summer Collection -->
+    <section class="summer-collection">
+        <div class="container">
+            <h2 class="collection-title">High Summer 2025</h2>
+            <p class="collection-subtitle">Sun loungers, seagulls and a guest named Check Mate. Long-time friend of the house Rianne Meijer showcases the new High Summer 2025 collection during a weekend getaway at the beach.</p>
+            <div class="collection-buttons">
+                <button class="btn btn-collection">Women</button>
+                <button class="btn btn-collection">Men</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="category-title">Shop by Category</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <img src="images/Women.jpg" alt="Women's Collection" loading="lazy">
+                        <div class="category-info">
+                            <h3>Women</h3>
+                            <button class="btn btn-shop">Shop Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <img src="images/Men.jpg" alt="Men's Collection">
+                        <div class="category-info">
+                            <h3>Men</h3>
+                            <button class="btn btn-shop">Shop Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <img src="images/Accessories.jpg" alt="Accessories">
+                        <div class="category-info">
+                            <h3>Accessories</h3>
+                            <button class="btn btn-shop">Shop Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="category-title">Featured Products</h2>
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="product-card">
+                        <img src="images/scarf.jpg" alt="Classic Check Scarf" loading="lazy">
+                        <div class="product-info">
+                            <h3 class="product-name">Classic Check Scarf</h3>
+                            <p class="product-price">£450</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="product-card">
+                        <img src="images/Trench Coat.jpg" alt="Heritage Trench Coat" loading="lazy">
+                        <div class="product-info">
+                            <h3 class="product-name">Heritage Trench Coat</h3>
+                            <p class="product-price">£1,790</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="product-card">
+                        <img src="images/Check Shirt.jpg" alt="Product 3">
+                        <div class="product-info">
+                            <h3 class="product-name">Check Cotton Shirt</h3>
+                            <p class="product-price">£350</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="product-card">
+                        <img src="images/LeatherBag.jpg" alt="Product 4">
+                        <div class="product-info">
+                            <h3 class="product-name">Leather TB Bag</h3>
+                            <p class="product-price">£1,290</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Burberry Classics -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="category-title">Burberry Classics</h2>
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="product-card">
+                        <img src="images/Check Polo.jpg" alt="Classic 1">
+                        <div class="product-info">
+                            <h3 class="product-name">Check Polo Shirt</h3>
+                            <p class="product-price">£390</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="product-card">
+                        <img src="images/Check bikini.jpg" alt="Classic 2">
+                        <div class="product-info">
+                            <h3 class="product-name">Check Bikini</h3>
+                            <p class="product-price">£320</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="product-card">
+                        <img src="images/Check Skirt.jpg" alt="Classic 3">
+                        <div class="product-info">
+                            <h3 class="product-name">Check Mini Skirt</h3>
+                            <p class="product-price">£450</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="product-card">
+                        <img src="images/Check Hoodie.jpg" alt="Classic 4">
+                        <div class="product-info">
+                            <h3 class="product-name">Check Hoodie</h3>
+                            <p class="product-price">£650</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Banner -->
+    <section class="summer-collection py-5">
+        <div class="container">
+            <h2 class="collection-title mb-3">Enjoy complimentary personalisation, packaging, and more Burberry Services.</h2>
+            <button class="btn btn-collection">Discover</button>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h3 class="footer-title">HELP</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Delivery & Returns</a></li>
+                        <li><a href="#">Track My Order</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h3 class="footer-title">ABOUT US</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Our History</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Corporate Information</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h3 class="footer-title">LEGAL & COOKIES</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h3 class="footer-title">FOLLOW US</h3>
+                    <div class="social-icons mb-4">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                    <h3 class="footer-title mt-4">SUBSCRIBE</h3>
+                    <p class="text-white-50 mb-3">Sign up for updates on new products and exclusive offers</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Your email address" aria-label="Email">
+                        <button class="btn btn-outline-light" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Burberry. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
