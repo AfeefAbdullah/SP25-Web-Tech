@@ -1,0 +1,17 @@
+<div class="container">
+    <br>
+        <h1 style="text-align: center;">My Cart</h1>
+    <% if (cartItems.length > 0) { %>
+        <ul>
+            <% cartItems.forEach(item => { %>
+                <li><%= item.name %> - <%= item.price %></li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <div class="empty-cart">
+            <img src="/images/empty-cart-new.svg" alt="Empty Cart" class="empty-cart-image">
+            <p style="margin-top: 20px; margin-bottom: 20px;">Your cart is empty! Let's find something great for you.</p>
+             <a href="/products" class="button" style="margin-top: 20px;">Go to Products</a>
+        </div>
+    <% } %>
+</div>

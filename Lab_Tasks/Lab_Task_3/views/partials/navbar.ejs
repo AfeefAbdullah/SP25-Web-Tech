@@ -1,0 +1,20 @@
+<nav class="navbar">
+    <div class="logo">
+        <h1>BURBERRY</h1>
+    </div>
+    <ul class="nav-links">
+        <li><a href="/" class="<%= title.includes('Home') ? 'active' : '' %>">Home</a></li>
+        <li><a href="/products" class="<%= title.includes('Products') ? 'active' : '' %>">Products</a></li>
+        <li><a href="/about" class="<%= title.includes('About') ? 'active' : '' %>">About</a></li>
+        <li><a href="<%= user ? '/cart' : '/login' %>" class="<%= title.includes('Cart') ? 'active' : '' %>">My Cart</a></li>
+        
+        <% if (user) { %>
+            <li><a href="/my-orders" class="<%= title.includes('My Orders') ? 'active' : '' %>">My Orders</a></li>
+            <li><span class="user-greeting"><%= user.title %> <%= user.firstName %></span></li>
+            <li><a href="/logout">Logout</a></li>
+        <% } else { %>
+            <li><a href="/login" class="<%= title.includes('Login') ? 'active' : '' %>">Login</a></li>
+            <li><a href="/register" class="<%= title.includes('Register') ? 'active' : '' %>">Register</a></li>
+        <% } %>
+    </ul>
+</nav>
