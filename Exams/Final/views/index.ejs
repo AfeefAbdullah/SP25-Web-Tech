@@ -1,0 +1,39 @@
+<!-- Hero Section -->
+<section class="hero" style="background-image: url('/images/homepage.jpg'); background-size: cover; background-position: center; min-height: 350px; display: flex; align-items: center;">
+    <div class="hero-content" style="width: 100%; background: rgba(193, 39, 25, 0.7); border-radius: 10px; padding: 2rem 1rem;">
+        <h2>Summer Collection 2025</h2>
+        <p>Discover our latest arrivals in luxury fashion</p>
+        <br><br>
+        <a href="/products" class="cta-button" style="background: #000; color: #fff;">Shop Now</a>
+    </div>
+</section>
+
+<!-- Featured Products -->
+<section class="featured-products">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
+        <% if (products && products.length) { %>
+            <% products.forEach(function(product) { %>
+                <div class="product-card">
+                    <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+                    <h3><%= product.title %></h3>
+                </div>
+            <% }); %>
+        <% } %>
+    </div>
+</section>
+
+<!-- New Arrivals -->
+<section class="new-arrivals">
+    <h2>New Arrivals</h2>
+    <div class="category-grid">
+        <div class="category">
+            <img src="/images/Women.jpg" alt="Women's Collection">
+            <h3>Women's Collection</h3>
+        </div>
+        <div class="category">
+            <img src="/images/Men.jpg" alt="Men's Collection">
+            <h3>Men's Collection</h3>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,284 @@
+<div class="admin-container">
+  <section class="admin-section">
+    <div class="admin-header">
+      <div class="header-content">
+        <h2>Edit Product</h2>
+        <p>Update product details in your catalog</p>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <form action="/admin/products/edit/<%= product._id %>" method="POST" class="product-form">
+        <div class="form-group">
+          <label for="title">Product Title</label>
+          <input 
+            type="text" 
+            id="title" 
+            name="title" 
+            required 
+            value="<%= product.title %>"
+            placeholder="Enter product title"
+            class="form-control"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="price">Price</label>
+          <div class="price-input-group">
+            <div class="price-symbol">£</div>
+            <input 
+              type="number" 
+              id="price" 
+              name="price" 
+              required 
+              value="<%= product.price %>"
+              step="0.01" 
+              min="0" 
+              class="form-control"
+            >
+          </div>
+          <small class="form-text">Enter the price in GBP (British Pounds)</small>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Product Description</label>
+          <textarea 
+            id="description" 
+            name="description" 
+            required 
+            placeholder="Enter product description"
+            class="form-control"
+            rows="4"
+          ><%= product.description %></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="imageUrl">Image URL</label>
+          <input 
+            type="url" 
+            id="imageUrl" 
+            name="imageUrl" 
+            required 
+            value="<%= product.imageUrl %>"
+            placeholder="Enter image URL"
+            class="form-control"
+          >
+          <small class="form-text">Provide a direct link to the product image</small>
+        </div>
+
+        <div class="form-actions">
+          <a href="/admin/products" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i>
+            Back to Products
+          </a>
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-save"></i>
+            Update Product
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>
+
+<style>
+body {
+  background-color: #fff;
+  color: #333;
+}
+
+.admin-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f0f0f0;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.admin-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #ddd;
+}
+
+.header-content h2 {
+  font-size: 2.25rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.header-content p {
+  color: #666;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.form-container {
+  background: #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 2rem;
+  border: 1px solid #ccc;
+}
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.form-control {
+  padding: 0.75rem 1rem;
+  border: 2px solid #ddd;
+  background-color: #fff;
+  color: #333;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #666;
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
+}
+
+.form-control::placeholder {
+  color: #999;
+  font-weight: 400;
+}
+
+.price-input-group {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.price-symbol {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #333;
+  border: 2px solid #ddd;
+  border-right: none;
+  border-radius: 6px 0 0 6px;
+}
+
+.price-input-group .form-control {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-text {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #ccc;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn i {
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: #333;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #444;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: #ccc;
+  color: #333;
+  border: 1px solid #bbb;
+}
+
+.btn-secondary:hover {
+  background-color: #bbb;
+  border-color: #aaa;
+  transform: translateY(-1px);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 100px;
+  background-color: #fff;
+  color: #333;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .admin-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .form-container {
+    padding: 1.5rem;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .header-content h2 {
+    font-size: 1.75rem;
+  }
+
+  .header-content p {
+    font-size: 1rem;
+  }
+}
+</style> 

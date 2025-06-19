@@ -1,0 +1,252 @@
+<div class="admin-container">
+  <section class="admin-section">
+    <div class="admin-header">
+      <div class="header-content">
+        <h2>Vehicle Management</h2>
+        <p>Manage your vehicle inventory</p>
+      </div>
+      <div class="header-actions">
+        <a href="/admin/vehicles/add" class="add-vehicle-btn">
+          <i class="fas fa-plus"></i> Add New Vehicle
+        </a>
+      </div>
+    </div>
+
+    <% if (typeof error !== 'undefined') { %>
+        <div class="alert alert-danger" style="background-color: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+            <%= error %>
+        </div>
+    <% } %>
+
+    <% if (vehicles && vehicles.length > 0) { %>
+        <div class="table-wrapper">
+          <div class="table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th class="col-vehicle">Vehicle</th>
+                  <th class="col-brand">Brand</th>
+                  <th class="col-type">Type</th>
+                  <th class="col-price">Price</th>
+                  <th class="col-actions">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% vehicles.forEach(function(vehicle) { %>
+                  <tr>
+                    <td class="col-vehicle">
+                      <div class="vehicle-info">
+                        <div class="vehicle-image-wrapper">
+                          <img src="<%= vehicle.image %>" alt="<%= vehicle.name %>" class="vehicle-image">
+                        </div>
+                        <span class="vehicle-title"><%= vehicle.name %></span>
+                      </div>
+                    </td>
+                    <td class="col-brand">
+                      <span class="brand-tag"><%= vehicle.brand %></span>
+                    </td>
+                    <td class="col-type">
+                      <span class="type-badge"><%= vehicle.type.charAt(0).toUpperCase() + vehicle.type.slice(1) %></span>
+                    </td>
+                    <td class="col-price">
+                      <span class="price-tag">₨<%= vehicle.price.toLocaleString() %></span>
+                    </td>
+                    <td class="col-actions">
+                      <div class="action-buttons">
+                        <a href="/admin/vehicles/edit/<%= vehicle._id %>" class="action-btn edit">
+                          <i class="fas fa-edit"></i>
+                          <span>Edit</span>
+                        </a>
+                        <form action="/admin/vehicles/delete/<%= vehicle._id %>" method="POST" class="delete-form">
+                          <button type="submit" class="action-btn delete" onclick="return confirm('Are you sure you want to delete this vehicle?')">
+                            <i class="fas fa-trash"></i>
+                            <span>Delete</span>
+                          </button>
+                        </form>
+                      </div>
+                    </td>
+                  </tr>
+                <% }); %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    <% } else { %>
+        <div class="empty-state" style="text-align: center; padding: 3rem; background: white; border-radius: 8px;">
+            <i class="fas fa-car" style="font-size: 3rem; color: #ccc; margin-bottom: 1rem;"></i>
+            <h3 style="margin-bottom: 0.5rem;">No vehicles found</h3>
+            <p style="color: #666; margin-bottom: 1.5rem;">Start by adding your first vehicle to the inventory.</p>
+            <a href="/admin/vehicles/add" class="add-vehicle-btn">
+              <i class="fas fa-plus"></i> Add New Vehicle
+            </a>
+        </div>
+    <% } %>
+  </section>
+</div>
+
+<style>
+.admin-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #eee;
+}
+
+.header-content h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.header-content p {
+  color: #666;
+}
+
+.add-vehicle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #000;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.add-vehicle-btn:hover {
+  background-color: #333;
+  transform: translateY(-1px);
+}
+
+.table-wrapper {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.admin-table th {
+  background-color: #000;
+  color: #fff;
+  font-weight: 700;
+  text-align: left;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.admin-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+
+.vehicle-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.vehicle-image-wrapper {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #dee2e6;
+}
+
+.vehicle-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.brand-tag, .type-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.brand-tag {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.type-badge {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.price-tag {
+  font-weight: 600;
+  color: #28a745;
+  background: #e7f5ea;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn.edit {
+  background-color: #f8f9fa;
+  color: #333;
+  border: 1px solid #dee2e6;
+}
+
+.action-btn.edit:hover {
+  background-color: #e9ecef;
+  transform: translateY(-1px);
+}
+
+.action-btn.delete {
+  background-color: #fff5f5;
+  color: #dc3545;
+  border: 1px solid #fad7dc;
+}
+
+.action-btn.delete:hover {
+  background-color: #ffe3e3;
+  transform: translateY(-1px);
+}
+
+.delete-form {
+  margin: 0;
+  padding: 0;
+}
+</style>

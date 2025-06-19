@@ -1,0 +1,123 @@
+<nav class="<%= user && user.isAdmin ? 'navbar admin-nav' : 'navbar' %>">
+    <div class="logo">
+        <h1>BURBERRY</h1>
+    </div>
+    <ul class="nav-links">
+        <% if (user && user.isAdmin) { %>
+            <li><span class="user-greeting admin-greeting">Hello Admin <%= user.firstName %>!</span></li>
+            <li><a href="/admin/products" class="<%= title.includes('Admin - Products') ? 'active' : '' %>">Products</a></li>
+            <li><a href="/admin/vehicles" class="<%= title.includes('Admin - Vehicles') ? 'active' : '' %>">Vehicles</a></li>
+            <li><a href="/admin/orders" class="<%= title.includes('Admin - Orders') ? 'active' : '' %>">Orders</a></li>
+            <li><a href="/logout">Logout</a></li>
+        <% } else { %>
+            <li><a href="/" class="<%= title.includes('Home') ? 'active' : '' %>">Home</a></li>
+            <li><a href="/products" class="<%= title.includes('Products') ? 'active' : '' %>">Products</a></li>
+            <li><a href="/vehicles" class="<%= title.includes('Vehicles') ? 'active' : '' %>">Vehicles</a></li>
+            <li><a href="/about" class="<%= title.includes('About') ? 'active' : '' %>">About</a></li>
+            <li><a href="<%= user ? '/cart' : '/login' %>" class="<%= title.includes('Cart') ? 'active' : '' %>">My Cart</a></li>
+            
+            <% if (user) { %>
+                <li><a href="/my-orders" class="<%= title.includes('My Orders') ? 'active' : '' %>">My Orders</a></li>
+                <li><span class="user-greeting"><%= user.title %> <%= user.firstName %></span></li>
+                <li><a href="/logout">Logout</a></li>
+            <% } else { %>
+                <li><a href="/login" class="<%= title.includes('Login') ? 'active' : '' %>">Login</a></li>
+                <li><a href="/register" class="<%= title.includes('Register') ? 'active' : '' %>">Register</a></li>
+            <% } %>
+        <% } %>
+    </ul>
+</nav>
+
+<style>
+.navbar {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #fff;
+}
+
+.admin-nav {
+    background-color: #000;
+}
+
+.admin-nav .logo h1,
+.admin-nav .nav-links li a,
+.admin-nav .user-greeting {
+    color: #fff;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-nav .nav-links {
+    gap: 1.2rem;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+}
+
+.admin-nav .nav-links li a:hover {
+    color: #ccc;
+}
+
+.admin-nav .nav-links li a.active {
+    border-bottom: 2px solid #fff;
+}
+
+.nav-links li a.active {
+    font-weight: 700;
+    border-bottom: 2px solid #000;
+}
+
+.user-greeting {
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.admin-greeting {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+}
+</style>

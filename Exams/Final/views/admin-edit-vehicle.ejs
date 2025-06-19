@@ -1,0 +1,303 @@
+<div class="admin-container">
+  <section class="admin-section">
+    <div class="admin-header">
+      <div class="header-content">
+        <h2>Edit Vehicle</h2>
+        <p>Update vehicle details in your inventory</p>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <form action="/admin/vehicles/edit/<%= vehicle._id %>" method="POST" enctype="multipart/form-data" class="vehicle-form">
+        <div class="form-group">
+          <label for="name">Vehicle Name</label>
+          <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            required 
+            value="<%= vehicle.name %>"
+            placeholder="Enter vehicle name"
+            class="form-control"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="brand">Brand</label>
+          <input 
+            type="text" 
+            id="brand" 
+            name="brand" 
+            required 
+            value="<%= vehicle.brand %>"
+            placeholder="Enter vehicle brand"
+            class="form-control"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="price">Price</label>
+          <div class="price-input-group">
+            <div class="price-symbol">₨</div>
+            <input 
+              type="number" 
+              id="price" 
+              name="price" 
+              required 
+              value="<%= vehicle.price %>"
+              step="0.01" 
+              min="0" 
+              class="form-control"
+            >
+          </div>
+          <small class="form-text">Enter the price in PKR (Pakistani Rupees)</small>
+        </div>
+
+        <div class="form-group">
+          <label for="type">Vehicle Type</label>
+          <select id="type" name="type" required class="form-control">
+            <option value="" disabled>Select vehicle type</option>
+            <option value="sedan" <%= vehicle.type === 'sedan' ? 'selected' : '' %>>Sedan</option>
+            <option value="SUV" <%= vehicle.type === 'SUV' ? 'selected' : '' %>>SUV</option>
+            <option value="truck" <%= vehicle.type === 'truck' ? 'selected' : '' %>>Truck</option>
+            <option value="coupe" <%= vehicle.type === 'coupe' ? 'selected' : '' %>>Coupe</option>
+            <option value="hatchback" <%= vehicle.type === 'hatchback' ? 'selected' : '' %>>Hatchback</option>
+            <option value="convertible" <%= vehicle.type === 'convertible' ? 'selected' : '' %>>Convertible</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="image">Vehicle Image</label>
+          <div class="current-image" style="margin-bottom: 1rem;">
+            <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">Current Image:</p>
+            <img src="<%= vehicle.image %>" alt="Current vehicle image" style="max-width: 200px; max-height: 150px; border-radius: 4px; border: 1px solid #ddd;">
+          </div>
+          <input 
+            type="file" 
+            id="image" 
+            name="image" 
+            accept="image/*"
+            class="form-control file-input"
+          >
+          <small class="form-text">Upload a new image to replace the current one (JPG, PNG, GIF). Max size: 5MB. Leave empty to keep current image.</small>
+          <div class="image-preview" id="imagePreview" style="display: none;">
+            <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">New Image Preview:</p>
+            <img id="previewImg" src="" alt="Preview" style="max-width: 200px; max-height: 200px; border-radius: 4px; border: 1px solid #ddd;">
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <a href="/admin/vehicles" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i>
+            Back to Vehicles
+          </a>
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-save"></i>
+            Update Vehicle
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>
+
+<style>
+.admin-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f0f0f0;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.admin-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #ddd;
+}
+
+.header-content h2 {
+  font-size: 2.25rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.header-content p {
+  color: #666;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.form-container {
+  background: #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 2rem;
+  border: 1px solid #ccc;
+}
+
+.vehicle-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.form-control {
+  padding: 0.75rem 1rem;
+  border: 2px solid #ddd;
+  background-color: #fff;
+  color: #333;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #666;
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
+}
+
+.price-input-group {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.price-symbol {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #333;
+  border: 2px solid #ddd;
+  border-right: none;
+  border-radius: 6px 0 0 6px;
+}
+
+.price-input-group .form-control {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-text {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #ccc;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-primary {
+  background-color: #333;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #444;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: #ccc;
+  color: #333;
+  border: 1px solid #bbb;
+}
+
+.btn-secondary:hover {
+  background-color: #bbb;
+  transform: translateY(-1px);
+}
+
+.file-input {
+  border: 2px dashed #ddd;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.file-input:hover {
+  border-color: #666;
+  background-color: #f9f9f9;
+}
+
+.file-input:focus {
+  border-color: #666;
+  outline: none;
+}
+
+.current-image {
+  text-align: center;
+}
+
+.image-preview {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.image-preview img {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+</style>
+
+<script>
+// Image preview functionality
+document.getElementById('image').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    const preview = document.getElementById('imagePreview');
+    const previewImg = document.getElementById('previewImg');
+    
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            previewImg.src = e.target.result;
+            preview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    } else {
+        preview.style.display = 'none';
+    }
+});
+</script>
