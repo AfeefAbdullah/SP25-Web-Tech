@@ -1,0 +1,229 @@
+<div class="admin-container">
+  <section class="admin-section">
+    <div class="admin-header">
+      <h2>Order Management</h2>
+      <p>View and manage all customer orders</p>
+    </div>
+
+    <div class="table-container">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Items</th>
+            <th>Total</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% orders.forEach(function(order) { %>
+            <tr>
+              <td class="order-id"><%= order._id %></td>
+              <td class="customer-name">
+                <%= order.user ? (order.user.firstName + ' ' + order.user.lastName) : 'N/A' %>
+              </td>
+              <td class="order-items">
+                <ul>
+                  <% order.products.forEach(function(item) { %>
+                    <li><span class="item-name"><%= item.name %></span> <span class="item-quantity">x<%= item.quantity %></span></li>
+                  <% }); %>
+                </ul>
+              </td>
+              <td class="order-total"><%= order.totalAmount %></td>
+              <td class="order-date">
+                <% 
+                  const orderDate = new Date(order.orderDate);
+                  const options = { 
+                    year: 'numeric', 
+                    month: 'short', 
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: true
+                  };
+                  const formattedDate = orderDate.toLocaleString('en-US', options);
+                %>
+                <%= formattedDate %>
+              </td>
+              <td class="order-status">
+                <span class="status-badge <%= order.status %>">
+                  <%= order.status.charAt(0).toUpperCase() + order.status.slice(1) %>
+                </span>
+              </td>
+              <td class="order-actions">
+                <form action="/admin/orders/<%= order._id %>/status" method="POST">
+                  <select name="status" onchange="this.form.submit()" class="status-select">
+                    <option value="">Update Status</option>
+                    <option value="pending" <%= order.status === 'pending' ? 'selected' : '' %>>Pending</option>
+                    <option value="delivered" <%= order.status === 'delivered' ? 'selected' : '' %>>Delivered</option>
+                    <option value="cancelled" <%= order.status === 'cancelled' ? 'selected' : '' %>>Cancelled</option>
+                  </select>
+                </form>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<style>
+.admin-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.admin-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #eee;
+}
+
+.admin-header h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.admin-header p {
+  color: #666;
+}
+
+.table-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.admin-table th {
+  background-color: #000;
+  color: #fff;
+  font-weight: 700;
+  text-align: left;
+  padding: 1rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.admin-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+
+.admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-table tr:hover {
+  background-color: #f8f8f8;
+}
+
+.admin-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.order-id {
+  font-family: monospace;
+  color: #666;
+}
+
+.customer-name {
+  font-weight: 500;
+}
+
+.order-items ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.order-items li {
+  padding: 0.25rem 0;
+}
+
+.item-name {
+  font-weight: 500;
+}
+
+.item-quantity {
+  color: #666;
+  margin-left: 0.5rem;
+}
+
+.order-total {
+  font-weight: 600;
+  color: #28a745;
+}
+
+.status-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-block;
+  text-align: center;
+}
+
+.status-badge.pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-badge.delivered {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-badge.cancelled {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.status-select {
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: white;
+  width: 100%;
+  max-width: 150px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.status-select:hover {
+  border-color: #adb5bd;
+}
+
+@media (max-width: 768px) {
+  .admin-table {
+    font-size: 0.9rem;
+  }
+  
+  .admin-table th,
+  .admin-table td {
+    padding: 0.75rem;
+  }
+  
+  .status-select {
+    max-width: 120px;
+  }
+}
+</style> 

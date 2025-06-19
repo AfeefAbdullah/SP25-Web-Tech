@@ -1,0 +1,95 @@
+<section class="about-hero">
+    <div class="hero-content">
+        <h2>Our Heritage</h2>
+        <p>Established in 1856, Burberry is a global luxury brand with a distinctly British attitude.</p>
+    </div>
+</section>
+
+<section class="about-content">
+    <div class="about-grid">
+        <div class="about-card">
+            <h3>Our Story</h3>
+            <p>Founded by Thomas Burberry, our brand has been at the forefront of fashion and innovation for over 150 years. From outfitting polar explorers to creating the iconic trench coat, our heritage is built on groundbreaking discoveries and designs that have stood the test of time.</p>
+        </div>
+        <div class="about-card">
+            <h3>Craftsmanship</h3>
+            <p>Every Burberry piece is crafted with exceptional attention to detail, combining traditional techniques with modern technology. Our commitment to quality ensures that each product meets the highest standards of luxury craftsmanship.</p>
+        </div>
+        <div class="about-card">
+            <h3>Sustainability</h3>
+            <p>We are committed to being a force for good in the world. Our sustainability strategy focuses on creating lasting positive change through innovative materials, responsible production, and support for our communities.</p>
+        </div>
+    </div>
+</section>
+
+<section class="brand-values">
+    <h2>Our Values</h2>
+    <div class="values-grid">
+        <div class="value-card">
+            <h3>Innovation</h3>
+            <p>Pushing boundaries in design and technology</p>
+        </div>
+        <div class="value-card">
+            <h3>Heritage</h3>
+            <p>Honoring our rich British history</p>
+        </div>
+        <div class="value-card">
+            <h3>Quality</h3>
+            <p>Uncompromising standards in everything we do</p>
+        </div>
+        <div class="value-card">
+            <h3>Responsibility</h3>
+            <p>Creating positive impact in fashion</p>
+        </div>
+    </div>
+</section>
+
+<style>
+.about-hero {
+    background: #000;
+    color: #fff;
+    padding: 3rem 0 2rem 0;
+}
+
+.hero-content {
+    background: #000;
+    color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.about-card {
+    background: #000;
+    color: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.value-card {
+    background: #000;
+    color: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.about-grid, .values-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+@media (min-width: 700px) {
+    .about-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .values-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+</style>
