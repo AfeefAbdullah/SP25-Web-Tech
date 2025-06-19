@@ -1,0 +1,45 @@
+<section class="products-hero">
+    <div class="hero-content">
+        <br><br>
+        <h2>Our Collections</h2>
+        <p>Explore our signature pieces and latest designs</p>
+        <br>
+    </div>
+</section>
+
+<section class="product-categories">
+    <div class="category-container">
+        <% if (products && products.length) { %>
+            <% products.forEach(function(product) { %>
+                <div class="category-card">
+                    <img src="<%= product.image %>" alt="<%= product.name %>">
+                    <h3><%= product.name %></h3>
+                    <p><%= product.price %></p>
+                </div>
+            <% }); %>
+        <% } %>
+    </div>
+</section>
+<section class="featured-collections">
+    <br>
+    <h2>Featured Collections</h2>
+    <br>
+    <div class="collection-grid">
+        <div class="collection-card">
+            <img src="/images/Women.jpg" alt="Women's Collection">
+            <div class="collection-info">
+                <h3>Women's Collection</h3>
+                <p>Discover the latest in women's luxury fashion</p>
+                <a href="#" class="view-collection">View Collection</a>
+            </div>
+        </div>
+        <div class="collection-card">
+            <img src="/images/Men.jpg" alt="Men's Collection">
+            <div class="collection-info">
+                <h3>Men's Collection</h3>
+                <p>Explore our curated selection for men</p>
+                <a href="#" class="view-collection">View Collection</a>
+            </div>
+        </div>
+    </div>
+</section>

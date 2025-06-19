@@ -1,0 +1,46 @@
+<section class="auth-section">
+    <div class="auth-container">
+        <h2>Welcome Back</h2>
+        <p class="auth-subtitle">Sign in to your account</p>
+        
+        <% if (error) { %>
+            <div class="error-message">
+                <%= error %>
+            </div>
+        <% } %>
+        
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <div class="password-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+            </div>
+            
+            <button type="submit" class="auth-button">Sign In</button>
+        </form>
+        
+        <div class="auth-divider">
+            <span>or</span>
+        </div>
+        
+        <button class="social-auth-button">
+            <i class="fab fa-google"></i> Continue with Google
+        </button>
+        <button class="social-auth-button">
+            <i class="fab fa-facebook-f"></i> Continue with Facebook
+        </button>
+        
+        <p class="auth-redirect">Don't have an account? <a href="/register">Sign up</a></p>
+    </div>
+</section>

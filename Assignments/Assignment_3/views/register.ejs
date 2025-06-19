@@ -1,0 +1,55 @@
+<section class="auth-section">
+    <div class="auth-container">
+        <h2>Create Account</h2>
+        <p class="auth-subtitle">Join our community today</p>
+        
+        <% if (error) { %>
+            <div class="error-message">
+                <%= error %>
+            </div>
+        <% } %>
+        
+        <form action="/register" method="POST">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Create a password" required minlength="8">
+                <small class="password-hint">Password must be at least 8 characters long</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirmPassword" placeholder="Confirm your password" required>
+            </div>
+            
+            <div class="form-group terms">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+            </div>
+            
+            <button type="submit" class="auth-button">Create Account</button>
+        </form>
+        
+        <div class="auth-divider">
+            <span>or</span>
+        </div>
+        
+        <button class="social-auth-button">
+            <i class="fab fa-google"></i> Sign up with Google
+        </button>
+        <button class="social-auth-button">
+            <i class="fab fa-facebook-f"></i> Sign up with Facebook
+        </button>
+        
+        <p class="auth-redirect">Already have an account? <a href="/login">Sign in</a></p>
+    </div>
+</section>
