@@ -1,0 +1,54 @@
+<section class="products-hero">
+    <div class="hero-content">
+        <h2>Our Collections</h2>
+        <p>Explore our signature pieces and latest designs</p>
+    </div>
+</section>
+
+<% if (typeof success !== 'undefined' && success) { %>
+    <div class="alert-success" style="background: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 12px 20px; border-radius: 5px; margin: 20px auto; max-width: 600px; text-align: center; font-weight: bold;">
+        <%= success %>
+    </div>
+<% } %>
+
+<section class="product-categories">
+    <div class="category-container">
+        <% if (products && products.length) { %>
+            <% products.forEach(function(product) { %>
+                <div class="category-card">
+                    <img src="<%= product.image %>" alt="<%= product.name %>">
+                    <h3><%= product.name %></h3>
+                    <p><%= product.price %></p>
+                    <form action="/cart/add" method="POST" style="margin-top: 10px;">
+                        <input type="hidden" name="name" value="<%= product.name %>">
+                        <input type="hidden" name="image" value="<%= product.image %>">
+                        <input type="hidden" name="price" value="<%= product.price %>">
+                        <button type="submit" class="shop-button">Add to Cart</button>
+                    </form>
+                </div>
+            <% }); %>
+        <% } %>
+    </div>
+</section>
+
+<section class="featured-collections">
+    <h2>Featured Collections</h2>
+    <div class="collection-grid">
+        <div class="collection-card">
+            <img src="/images/Women.jpg" alt="Women's Collection">
+            <div class="collection-info">
+                <h3>Women's Collection</h3>
+                <p>Discover the latest in women's luxury fashion</p>
+                <a href="#" class="view-collection">View Collection</a>
+            </div>
+        </div>
+        <div class="collection-card">
+            <img src="/images/Men.jpg" alt="Men's Collection">
+            <div class="collection-info">
+                <h3>Men's Collection</h3>
+                <p>Explore our curated selection for men</p>
+                <a href="#" class="view-collection">View Collection</a>
+            </div>
+        </div>
+    </div>
+</section>

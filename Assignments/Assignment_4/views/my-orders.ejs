@@ -1,0 +1,50 @@
+<section class="orders-section">
+    <div class="container">
+        <h2>My Orders</h2>
+        
+        <% if (orders && orders.length > 0) { %>
+            <div class="orders-list">
+                <% orders.forEach(order => { %>
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div class="order-info">
+                                <h3>Order #<%= order._id.toString().slice(-6).toUpperCase() %></h3>
+                                <p class="order-date">Placed on <%= new Date(order.orderDate).toLocaleDateString() %></p>
+                            </div>
+                            <div class="order-status <%= order.status %>">
+                                <span><%= order.status.charAt(0).toUpperCase() + order.status.slice(1) %></span>
+                            </div>
+                        </div>
+                        
+                        <div class="order-items">
+                            <% order.products.forEach(product => { %>
+                                <div class="order-item">
+                                    <div class="item-details">
+                                        <h4><%= product.name %></h4>
+                                        <p class="item-price"><%= product.price %></p>
+                                        <p class="item-quantity">Quantity: <%= product.quantity %></p>
+                                    </div>
+                                </div>
+                            <% }); %>
+                        </div>
+                        
+                        <div class="order-footer">
+                            <div class="order-total">
+                                <p>Total: <span><%= order.totalAmount %></span></p>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <div class="empty-orders">
+                <div class="empty-message">
+                    <i class="fas fa-shopping-bag"></i>
+                    <h3>No orders yet</h3>
+                    <p>You haven't placed any orders yet. Browse our products and make your first purchase!</p>
+                    <a href="/products" class="shop-now-btn">Shop Now</a>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</section>
